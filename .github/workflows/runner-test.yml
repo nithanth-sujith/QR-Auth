@@ -1,0 +1,29 @@
+name: Runner Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-runner:
+    runs-on: [self-hosted, linux, local-cicd]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show system
+        run: |
+          echo "Runner is working"
+          uname -a
+
+      - name: Show Git
+        run: git --version
+
+      - name: Show Docker
+        run: docker --version
+
+      - name: Test Docker
+        run: docker ps
+
+      - name: Test SonarQube
+        run: curl http://localhost:9000/api/system/status

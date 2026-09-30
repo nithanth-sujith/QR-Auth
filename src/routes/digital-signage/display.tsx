@@ -1,5 +1,6 @@
 import { useAuthStore } from '#/auth/auth-store'
 import BranchData from '#/components/BranchData'
+import FeatureFlags from '#/components/FeatureFlags'
 import { getBranchData } from '#/features/branch/api/branch.api'
 import { branchKeys } from '#/features/branch/hooks/useBranchData'
 import { createFileRoute, redirect } from '@tanstack/react-router'
@@ -27,5 +28,7 @@ export const Route = createFileRoute('/digital-signage/display')({
 
 function RouteComponent() {
   const { branchData } = Route.useRouteContext()
-  return <BranchData branchData={branchData.branch} />
+
+  return
+    <BranchData branchData={branchData.branch} />
 }
